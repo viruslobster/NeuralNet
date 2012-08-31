@@ -1,0 +1,4 @@
+[Project]
+Name=NeuralNet
+Manager=KDevCMakeManager
+VersionControl=kdevgit
