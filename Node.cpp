@@ -27,11 +27,41 @@
 
 
 #include "Node.h"
+#include "Math.h"
 
 Node::Node(int inputNum) {
   this->inputNum = inputNum;
+  last_output = 0;
+  for(int i=0;i<inputNum;i++) {
+    w_vector.push_back(fRand(-20, 20)); 
+  }
   
+  threshold = fRand(-20, 20);
+  
+}
 
+double Node::activation(double a) {  
+  if(a >= threshold) return 1;
+  else               return 0;
+}
+
+double Node::summation(std::vector< double >& input) {
+  double sum = 0;
+  if(input.size() != inputNum) {
+    std::cerr << "input vector is of wrong size!" << std::endl;
+    throw;    
+  }
+  for(int i=0;i<inputNum;i++) {
+   sum += input[i] * w_vector[i]; 
+  }
+  
+  return 0;
+}
+
+double Node::input(std::vector< double >& input) {
+  double a = summation(input);
+  last_output = activation(a);
+  return last_output;
 }
 
 Node::~Node() {

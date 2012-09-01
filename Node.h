@@ -30,18 +30,20 @@
 #define NODE_H
 #include <vector>
 
-class Node
-{
+
+
+class Node {
 private:
   std::vector<double> w_vector;
+  double last_output;
   int inputNum;
   double threshold;
   double activation(double a);
-  double summation(std::vector<double> input);
+  double summation(std::vector<double>& input);
 
 public:
-  Node(int inputNum);
-  double process(std::vector<double> input);
+  Node(int inputNum);  
+  double input(std::vector<double>& input);
   
   virtual ~Node();
 };
