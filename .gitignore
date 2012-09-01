@@ -10,5 +10,9 @@
 *.lai
 *.la
 *.a
+
+# annoying files
 build/
+*.*~
+*~
 
